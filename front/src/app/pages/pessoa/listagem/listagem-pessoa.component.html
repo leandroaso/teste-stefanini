@@ -1,1 +1,38 @@
-<p>pessoa works!</p>
+<form [formGroup]="" (submit)="(false)">
+
+    <div class="p-d-flex p-jc-between">
+        <div class="p-mr-2 p-as-center">
+            <h2 class="tituloArea">DADOS PESSOAIS</h2>
+        </div>
+        <div class="p-mr-2 p-as-center">
+            <button pButton type="button" class="p-button-success" icon="pi pi-plus" label="CADASTRAR PESSOA"></button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h5>Vertical and Grid</h5>
+        <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col">
+                <label for="nome">Nome</label>
+                <input id="nome" type="text" pInputText> 
+            </div>
+            <div class="p-field p-col">
+                <label for="cpf">CPF</label>
+                <input id="cpf" type="text" pInputText> 
+            </div>
+            <div class="p-field p-col">
+                <label for="idade">IDADE</label>
+                <input id="idade" type="text" pInputText> 
+            </div>
+            <div class="p-field p-col">
+                <label for="cidade">CIDADE</label>
+                <input id="cidade" type="text" pInputText> 
+            </div>
+        </div>
+        <div class="p-d-flex p-jc-end">            
+            <button pButton type="button"  label="BUSCAR"></button>
+        </div>
+
+    </div>
+
+</form>
