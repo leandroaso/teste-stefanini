@@ -5,6 +5,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListagemPessoaRoutingModule } from './listagem-pessoa-routing.module';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
 
 @NgModule({
   declarations: [ListagemPessoaComponent],
@@ -14,7 +17,10 @@ import {ButtonModule} from 'primeng/button';
     FormsModule,
     ListagemPessoaRoutingModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    TableModule,
+    CardModule,
+    DropdownModule
   ]
 })
 export class ListagemPessoaModule { }

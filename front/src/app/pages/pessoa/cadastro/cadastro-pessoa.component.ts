@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class CadastroPessoaComponent implements OnInit {
 
   constructor() { 
-    console.log("teste coponente cadastro");    
   }
 
   ngOnInit(): void {
