@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ListagemPessoaComponent } from './listagem-pessoa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListagemPessoaRoutingModule } from './listagem-pessoa-routing.module';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [ListagemPessoaComponent],
@@ -10,7 +12,9 @@ import { ListagemPessoaRoutingModule } from './listagem-pessoa-routing.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ListagemPessoaRoutingModule
+    ListagemPessoaRoutingModule,
+    InputTextModule,
+    ButtonModule
   ]
 })
 export class ListagemPessoaModule { }
