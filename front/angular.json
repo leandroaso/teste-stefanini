@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Stefanini"
+    }
+  },
+  "defaultProject": "Stefanini",
+  "cli": {
+    "analytics": "96aca0b5-142f-49d9-b77b-b562d0520eb4"
+  }
 }
