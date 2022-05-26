@@ -70,9 +70,13 @@ export class CadastroCidadeComponent implements OnInit {
     this.router.navigate(['cidade']);
   }
 
-  public campoEhObrigatorio(campo: string): boolean {
+  public campoEhValido(campo: string, error: string): boolean {
     const { touched, errors } = this.formulario.controls[campo];
     
-    return !(touched && errors);
+    var validar = null;
+    if(errors){
+      validar = errors[error];
+    }    
+    return !(touched && validar);
   }
 }
