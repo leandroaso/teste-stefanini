@@ -69,14 +69,18 @@ export class CadastroPessoaComponent implements OnInit {
     if (this.modoEdicao) {
       this.service.update(this.formulario.value).subscribe((pessoa) => {
         this.router.navigate(['pessoa']);
-        this.messageService.add({severity:'success', summary:'Sucesso!', detail:'Dados atualizado com sucesso!'});
+        this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Dados atualizado com sucesso!' });
+      }, (error) => {
+        this.messageService.add({ severity: 'error', summary: 'Error!', detail: error['error'] });
       });
       return;
     }
 
     this.service.salver(this.formulario.value).subscribe((pessoa) => {
       this.router.navigate(['pessoa']);
-      this.messageService.add({severity:'success', summary:'Sucesso!', detail:'Dados cadastrados com sucesso!'});
+      this.messageService.add({ severity: 'success', summary: 'Sucesso!', detail: 'Dados cadastrados com sucesso!' });
+    }, (error) => {
+      this.messageService.add({ severity: 'error', summary: 'Error!', detail: error['error'] });
     });
   }
 
@@ -86,7 +90,7 @@ export class CadastroPessoaComponent implements OnInit {
 
   public campoEhObrigatorio(campo: string): boolean {
     const { touched, errors } = this.formulario.controls[campo];
-    
+
     return !(touched && errors);
   }
 }

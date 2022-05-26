@@ -20,11 +20,11 @@
                     </div>
                     <div class="p-field p-col">
                         <label for="cpf">CPF</label>
-                        <input id="cpf" type="text" formControlName="cpf" pInputText>
+                        <input id="cpf" type="text" formControlName="cpf" [maxlength]="11" pInputText>
                     </div>
                     <div class="p-field p-col">
                         <label for="idade">IDADE</label>
-                        <input id="idade" type="text" formControlName="idade" pInputText>
+                        <input id="idade" type="text" pKeyFilter="pint" [maxlength]="3" formControlName="idade" pInputText>
                     </div>
                     <div class="p-field p-col">
                         <label for="cidade">CIDADE</label>

@@ -5,7 +5,7 @@
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12 p-md-6">
                 <label for="nome">Nome <small class="label_obrigatorio">"Obrigatório"</small></label>
-                <input id="nome" type="text" formControlName="nome" pInputText>
+                <input id="nome" type="text" formControlName="nome" [maxlength]="200" pInputText>
                 <span class="dica_inputs" *ngIf="campoEhObrigatorio('nome')">Nome o Idade</span>
                 <span class="label_obrigatorio" *ngIf="!campoEhObrigatorio('nome')">Nome é obrigatório</span>
             </div>

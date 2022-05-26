@@ -17,17 +17,32 @@ namespace StefaniniWebApi.Controllers
         }
 
         [HttpPost]
-        public Pessoa Insert([FromBody] Pessoa pessoa)
+        public ActionResult<Pessoa> Insert([FromBody] Pessoa pessoa)
         {
-            return _service.Insert(pessoa);
+            try
+            {
+                return Ok(_service.Insert(pessoa));
+            }
+            catch (ApplicationException e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpPut]
-        public void Update([FromBody] Pessoa pessoa)
+        public ActionResult Update([FromBody] Pessoa pessoa)
         {
-            _service.Update(pessoa);
-        }        
-        
+            try
+            {
+                _service.Update(pessoa);
+                return Ok();
+            }
+            catch (ApplicationException e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpDelete]
         public void Delete([FromQuery] int id)
         {
