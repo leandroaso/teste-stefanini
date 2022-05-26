@@ -7,7 +7,7 @@
                     <h2 class="tituloArea">DADOS PESSOAIS</h2>
                 </div>
                 <div class="p-mr-2 p-as-center">
-                    <button pButton type="button" class="p-button-success" icon="pi pi-plus"
+                    <button pButton type="button" class="p-button-success" (click)="adicionarPessoa()" icon="pi pi-plus"
                         label="CADASTRAR PESSOA"></button>
                 </div>
             </div>
@@ -60,9 +60,9 @@
                         </div>
 
                         <div *ngIf="col.header === 'AÇÕES'">
-                            <button type="button" pButton class="p-button-warning" icon="pi pi-pencil" pTooltip="Editar"
+                            <button type="button" pButton class="p-button-warning" (click)="editar(item)" icon="pi pi-pencil" pTooltip="Editar"
                                 tooltipPosition="top"></button>
-                            <button type="button" pButton class="p-button-danger" icon="pi pi-trash" pTooltip="Remover"
+                            <button type="button" pButton class="p-button-danger" (click)="remover(item)" icon="pi pi-trash" pTooltip="Remover"
                                 tooltipPosition="top"></button>
 
                         </div>

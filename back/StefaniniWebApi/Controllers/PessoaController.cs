@@ -26,6 +26,12 @@ namespace StefaniniWebApi.Controllers
         public void Update([FromBody] Pessoa pessoa)
         {
             _service.Update(pessoa);
+        }        
+        
+        [HttpDelete]
+        public void Delete([FromQuery] int id)
+        {
+            _service.Delete(id);
         }
 
         [HttpGet]

@@ -129,6 +129,20 @@ namespace Infrastructure.Repositories
             });
         }
 
+        public void Delete(int id)
+        {
+            var sql = @"
+                DELETE FROM
+	                PESSOA
+                WHERE
+	                ID = @id ";
+
+            _dapper.GetConnection().Execute(sql, new
+            {
+                id
+            });
+        }
+
         private string ConstruirSqlWhere(FiltroPaginated filtro)
         {
             var sql = string.Empty;
@@ -158,5 +172,7 @@ namespace Infrastructure.Repositories
 
             return " AND ";
         }
+
+ 
     }
 }

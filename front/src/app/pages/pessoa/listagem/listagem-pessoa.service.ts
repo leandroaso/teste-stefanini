@@ -5,6 +5,7 @@ import { ListagemPessoaDto } from 'src/app/core/dtos/listagem-pessoa.dto';
 import { Paginated } from 'src/app/core/dtos/paginated';
 import { Observable } from 'rxjs';
 import { FiltroListagemPessoaDto } from 'src/app/core/dtos/filtro-listagem-pessoa.dto';
+import { Pessoa } from '../../../core/entities/pessoa';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,12 @@ export class ListagemPessoaService {
         params,
       }
     );
+  }
+
+  public delete(pessoa: Pessoa): Observable<any>{
+    let params = new HttpParams()
+      .append('id', pessoa.id.toString());
+
+    return this.http.delete(this.url, {params});
   }
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Data } from '@angular/router';
-import { LazyLoadEvent, SelectItem } from 'primeng/api';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { ConfirmationService, LazyLoadEvent, SelectItem } from 'primeng/api';
 import { ListagemPessoaDto } from 'src/app/core/dtos/listagem-pessoa.dto';
 import { Paginated } from 'src/app/core/dtos/paginated';
+import { Cidade } from 'src/app/core/entities/cidade';
+import { Pessoa } from 'src/app/core/entities/pessoa';
 import { ListagemPessoaService } from './listagem-pessoa.service';
-import { Cidade } from '../../../core/entities/cidade';
-
 
 @Component({
   selector: 'app-listagem-pessoa',
@@ -23,6 +23,8 @@ export class ListagemPessoaComponent implements OnInit {
     private service: ListagemPessoaService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
+    private confirmationService: ConfirmationService
   ) {
     this.constuirColunas();
   }
@@ -39,6 +41,10 @@ export class ListagemPessoaComponent implements OnInit {
       idade: [null],
       cidade: [null],
     });
+  }
+
+  public adicionarPessoa(): void{
+    this.router.navigate(['cadastro-pessoa']);
   }
 
   public paginacaoAtual(): string {
@@ -61,7 +67,6 @@ export class ListagemPessoaComponent implements OnInit {
     });
   }
 
-
   public paginate(event: LazyLoadEvent): void {
     this.paginated.pageNumber = event.first / event.rows;
 
@@ -78,6 +83,25 @@ export class ListagemPessoaComponent implements OnInit {
     }
   }
 
+  public editar(pessoa: Pessoa): void {    
+		this.router.navigate(['cadastro-pessoa'], {
+			queryParams: { id: pessoa.id },
+		});
+	}
+
+  public remover(pessoa: Pessoa): void {    
+      this.confirmationService.confirm({
+        message: 'Tem certeza que deseja remover esse cadastro?',
+        header: 'Confirmação',
+        acceptLabel: 'SIM',
+        rejectLabel: 'NÃO',
+        accept: () => {
+            this.service.delete(pessoa).subscribe((dados)=>{
+              this.pesquisarPorFiltro();
+            });
+        }
+    });
+	}
 
   private constuirColunas(): void {
     this.cols = [

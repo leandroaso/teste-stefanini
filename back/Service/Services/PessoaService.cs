@@ -13,6 +13,11 @@ namespace Service.Services
             _repository = repository;
         }
 
+        public void Delete(int id)
+        {
+            this._repository.Delete(id);
+        }
+
         public Paginated<PessoaListagemDto> FindByFiltro(Paginated<PessoaListagemDto> paginated, FiltroPaginated filtro)
         {
             return _repository.GetByFiltro(paginated, filtro);

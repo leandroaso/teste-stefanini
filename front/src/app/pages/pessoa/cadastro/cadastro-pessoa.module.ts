@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { CadastroPessoaComponent } from './cadastro-pessoa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroPessoaRoutingModule } from './cadastro-pessoa-routing.module';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [CadastroPessoaComponent],
@@ -10,7 +15,12 @@ import { CadastroPessoaRoutingModule } from './cadastro-pessoa-routing.module';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    CadastroPessoaRoutingModule
+    CadastroPessoaRoutingModule,
+    InputTextModule,
+    ButtonModule,
+    TableModule,
+    CardModule,
+    DropdownModule
   ]
 })
 export class CadastroPessoaModule { }
