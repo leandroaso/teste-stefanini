@@ -1,10 +1,10 @@
-using FluentMigrator.Runner;
 using Infrastructure.Dapper;
 using Infrastructure.IRepositories;
 using Infrastructure.Repositories;
 using Service.IServices;
 using Service.Services;
 using StefaniniWebApi.Configs;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +34,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(x => x
+           .AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader());
 
 app.UseAuthorization();
 

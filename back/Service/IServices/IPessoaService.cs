@@ -8,6 +8,7 @@ namespace Service.IServices
         Pessoa Insert(Pessoa pessoa);
         Pessoa GetBy(int id);
         void Update(Pessoa pessoa);
+        void Delete(int id);
         Paginated<PessoaListagemDto> FindByFiltro(Paginated<PessoaListagemDto> paginated, FiltroPaginated filtro);
     }
 }

@@ -1,0 +1,26 @@
+<p-card class="card">
+    <form [formGroup]="formulario" (submit)="(false)">
+
+        <h2>{{this.modoEdicao ? 'Editar' : 'Cadastro'}} de cidade</h2>
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-6">
+                <label for="nome">Nome <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <input id="nome" type="text" formControlName="nome" [maxlength]="200" pInputText>
+                <span class="dica_inputs" *ngIf="campoEhValido('nome', 'required')">Digite o Nome</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhValido('nome', 'required')">Nome é obrigatório</span>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+                <label for="uf">UF <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <input id="uf" type="text" formControlName="uf" [maxlength]="2" [minlength]="2" pInputText>
+                <span class="dica_inputs" *ngIf="campoEhValido('uf', 'required') && campoEhValido('uf','minlength')">Digite a UF</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhValido('uf','required')">UF é obrigatório</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhValido('uf','minlength')">Digite 2 caracteres</span>
+            </div>
+        </div>
+        
+        <div class="p-d-flex p-jc-end">
+            <button pButton type="button" class="p-button-warning" (click)="cancelar()" label="CANCELAR"></button>
+            <button pButton type="button" (click)="salvar()" label="SALVAR"></button>
+        </div>
+    </form>
+</p-card>

@@ -1,0 +1,38 @@
+<p-card class="card">
+    <form [formGroup]="formulario" (submit)="(false)">
+
+        <h2>{{this.modoEdicao ? 'Editar' : 'Cadastro'}} de pessoa</h2>
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-6">
+                <label for="nome">Nome <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <input id="nome" type="text" formControlName="nome" [maxlength]="300" pInputText>
+                <span class="dica_inputs" *ngIf="campoEhObrigatorio('nome')">Nome o Idade</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhObrigatorio('nome')">Nome é obrigatório</span>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+                <label for="cpf">CPF <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <input id="cpf" type="text" formControlName="cpf" [maxlength]="11" pInputText>
+                <span class="dica_inputs" *ngIf="campoEhObrigatorio('cpf')">CPF o Idade</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhObrigatorio('cpf')">CPF é obrigatório</span>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+                <label for="idade">IDADE <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <input id="idade" type="text" formControlName="idade" pKeyFilter="pint" [maxlength]="3" pInputText>
+                <span class="dica_inputs" *ngIf="campoEhObrigatorio('idade')">Digite o Idade</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhObrigatorio('idade')">Idade é obrigatória</span>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+                <label for="cidade">CIDADE <small class="label_obrigatorio">"Obrigatório"</small></label>
+                <p-dropdown [options]="cidades" [showClear]="true" [placeholder]="'&nbsp;'" formControlName="cidade">          
+                </p-dropdown>
+                <span class="dica_inputs" *ngIf="campoEhObrigatorio('cidade')">Digite o Cidade</span>
+                <span class="label_obrigatorio" *ngIf="!campoEhObrigatorio('cidade')">Cidade é obrigatória</span>
+            </div>
+        </div>
+
+        <div class="p-d-flex p-jc-end">
+            <button pButton type="button" class="p-button-warning" (click)="cancelar()" label="CANCELAR"></button>
+            <button pButton type="button" (click)="salvar()" label="SALVAR"></button>
+        </div>
+    </form>
+</p-card>
