@@ -106,6 +106,31 @@ namespace Infrastructure.Repositories
             return pessoa;
         }
 
+        public IEnumerable<Pessoa> FindBy(Cidade cidade)
+        {
+            var query = @"
+                 SELECT
+                    P.ID,
+                    P.NOME,
+                    P.CPF,
+                    P.IDADE,
+                    C.ID,
+                    C.NOME,
+                    C.UF
+                FROM
+                    PESSOA P
+                    INNER JOIN CIDADE C ON P.ID_CIDADE = C.ID 
+                WHERE C.ID = @id";
+
+            return _dapper.GetConnection().Query(query, (System.Func<Pessoa, Cidade, Pessoa>)(
+                            (pessoa, cidade) =>
+                            {
+                                pessoa.Cidade = cidade;
+
+                                return pessoa;
+                            }), param: new { id = cidade.Id });
+        }
+
         public void Update(Pessoa pessoa)
         {
             var sql = @"

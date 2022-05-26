@@ -12,6 +12,16 @@ const routes: Routes = [
             .then((m) => m.CadastroPessoaModule)
     },
     {
+        path: 'cidade',
+        loadChildren: () => import('./pages/cidade/listagem/listagem-cidade.module')
+            .then((m) => m.ListagemCidadeModule)
+    },
+    {
+        path: 'cadastro-cidade',
+        loadChildren: () => import('./pages/cidade/cadastro/cadastro-cidade.module')
+            .then((m) => m.CadastroCidadeModule)
+    },
+    {
         path: '**',
         redirectTo: 'pessoa',
         pathMatch: 'full'

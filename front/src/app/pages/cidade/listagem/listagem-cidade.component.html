@@ -4,11 +4,11 @@
         <form [formGroup]="formulario" (submit)="(false)">
             <div class="p-d-flex p-jc-between">
                 <div class="p-mr-2 p-as-center">
-                    <h2 class="tituloArea">DADOS PESSOAIS</h2>
+                    <h2 class="tituloArea">DADOS CIDADES</h2>
                 </div>
                 <div class="p-mr-2 p-as-center">
-                    <button pButton type="button" class="p-button-success" (click)="adicionarPessoa()" icon="pi pi-plus"
-                        label="CADASTRAR PESSOA"></button>
+                    <button pButton type="button" class="p-button-success" (click)="adicionarCidade()" icon="pi pi-plus"
+                        label="CADASTRAR CIDADE"></button>
                 </div>
             </div>
 
@@ -19,16 +19,8 @@
                         <input id="nome" type="text" formControlName="nome" pInputText>
                     </div>
                     <div class="p-field p-col">
-                        <label for="cpf">CPF</label>
-                        <input id="cpf" type="text" formControlName="cpf" pInputText>
-                    </div>
-                    <div class="p-field p-col">
-                        <label for="idade">IDADE</label>
-                        <input id="idade" type="text" formControlName="idade" pInputText>
-                    </div>
-                    <div class="p-field p-col">
-                        <label for="cidade">CIDADE</label>
-                        <p-dropdown [options]="cidades" [showClear]="true" [placeholder]="'&nbsp;'"  formControlName="cidade"></p-dropdown>
+                        <label for="uf">UF</label>
+                        <input id="uf" type="text" formControlName="uf" pInputText>
                     </div>
                 </div>
                 <div class="p-d-flex p-jc-end">
@@ -59,10 +51,10 @@
                         </div>
 
                         <div *ngIf="col.header === 'AÇÕES'">
-                            <button type="button" pButton class="p-button-warning" (click)="editar(item)" icon="pi pi-pencil" pTooltip="Editar"
-                                tooltipPosition="top"></button>
-                            <button type="button" pButton class="p-button-danger" (click)="remover(item)" icon="pi pi-trash" pTooltip="Remover"
-                                tooltipPosition="top"></button>
+                            <button type="button" pButton class="p-button-warning" (click)="editar(item)"
+                                icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></button>
+                            <button type="button" pButton class="p-button-danger" (click)="remover(item)"
+                                icon="pi pi-trash" pTooltip="Remover" tooltipPosition="top"></button>
 
                         </div>
 
